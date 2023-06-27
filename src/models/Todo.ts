@@ -7,20 +7,24 @@ export interface TodoInstance extends Model {
   done: boolean;
 }
 
-export const Todo = sequelize.define<TodoInstance>('Todo', {
+export const Todo = sequelize.define<TodoInstance>(
+  "Todo",
+  {
     id: {
-        primaryKey: true,
-        autoIncrement: true,
-        type: DataTypes.INTEGER
+      primaryKey: true,
+      autoIncrement: true,
+      type: DataTypes.INTEGER,
     },
     title: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     done: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
-    }
-}, {
-    tableName: 'todo',
-    timestamps: false
-})
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+  },
+  {
+    tableName: "todo",
+    timestamps: false,
+  }
+);

@@ -46,4 +46,11 @@ export const update = async (req: Request, res: Response) => {
     res.json({ error: "Item não identificado" });
   }
 };
-export const remove = async () => {};
+export const remove = async (req: Request, res: Response) => {
+  let id: string = req.params.id;
+  let todo = await Todo.findByPk(id);
+  if (todo) {
+    await todo.destroy();
+  }
+  res.json({});
+};
